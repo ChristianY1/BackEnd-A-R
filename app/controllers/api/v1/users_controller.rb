@@ -46,6 +46,6 @@ class Api::V1::UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:username)
+      params.require(:user).permit(:username).permit(:apellido).permit(:fechaDeNacimiento).permit(:sexo).permit(:telefono).permit(:correo).permit(:psw)
     end
 end
