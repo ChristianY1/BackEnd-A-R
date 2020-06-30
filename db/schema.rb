@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_30_202834) do
+ActiveRecord::Schema.define(version: 2020_06_30_223447) do
+
+  create_table "bills", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "fecha"
+    t.string "producto"
+    t.string "precio"
+    t.string "cantidad"
+    t.string "total"
+    t.string "subtotal"
+    t.string "precioTotal"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_bills_on_user_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "username"
@@ -24,4 +38,5 @@ ActiveRecord::Schema.define(version: 2020_06_30_202834) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "bills", "users"
 end
