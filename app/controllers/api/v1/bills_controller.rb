@@ -1,4 +1,4 @@
-class BillsController < ApplicationController
+class Api::V1::BillsController < ApplicationController
   before_action :set_bill, only: [:show, :update, :destroy]
 
   # GET /bills
